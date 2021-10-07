@@ -49,5 +49,15 @@ public class ServicoConsumidor {
 
     }
 
+    public static Consumidor buscarConsumidor(String email) throws Exception{
+        for (Consumidor referencia : consumidores){
+            if (referencia.getEmail().equals(email)){
+                return referencia;
+            }
+        }
+
+        throw new Exception("Email não encontrado!");
+    }
+
 
 }
