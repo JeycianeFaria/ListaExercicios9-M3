@@ -40,8 +40,9 @@ public class ServicoConsumidor {
 
     public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws  Exception{
 
-        validarTipoPessoa(tipoSelecionado);
-        Consumidor consumidor = new Consumidor(nome,email,tipoSelecionado);
+        TipoPessoa tipoPessoa = validarTipoPessoa(tipoSelecionado);
+
+        Consumidor consumidor = new Consumidor(nome,email,tipoPessoa);
         consumidores.add(consumidor);
 
         return consumidor;
