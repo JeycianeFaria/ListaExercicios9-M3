@@ -1,5 +1,6 @@
 package br.com.zup;
 
+import java.util.EnumMap;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,6 +41,16 @@ public class Sistema {
 
         return consumidor;
 
+    }
+
+    public static Fatura cadastrarFatura() throws Exception{
+        String email = capturaDeDados("Digite o email do consumidor ao qual  deseja cadastrar a fatura: ").nextLine();
+        Consumidor consumidor = ServicoConsumidor.buscarConsumidor(email);
+        double valorFatura = capturaDeDados("Digite o valor da fatura: ").nextDouble();
+        String dataVencimento = capturaDeDados("Digite a data de vencimento da fatura: ").nextLine();
+        Fatura fatura = ServicoFatura.cadastrarFatura(consumidor,valorFatura,dataVencimento);
+
+        return  fatura;
     }
 
 }

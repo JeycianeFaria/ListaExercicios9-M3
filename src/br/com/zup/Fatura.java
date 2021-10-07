@@ -46,7 +46,7 @@ public class Fatura {
         StringBuilder exibir = new StringBuilder();
         exibir.append("\n======Fatura======");
         exibir.append("\nConsumidor: " + consumidor);
-        exibir.append("\nValor da Fatura: " + valorASerPago);
+        exibir.append("\nValor da Fatura: R$" + valorASerPago);
         exibir.append("\nData de Vencimento: " + dataVencimento);
         exibir.append("\n==================");
         return exibir.toString();
