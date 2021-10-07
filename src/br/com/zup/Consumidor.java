@@ -35,9 +35,9 @@ public class Consumidor {
     @Override
     public String toString() {
         StringBuilder exibir = new StringBuilder();
-        exibir.append("======Consumidor======");
-        exibir.append("Nome: " + nome);
-        exibir.append("Email: " + email);
+        exibir.append("\n======Consumidor======");
+        exibir.append("\nNome: " + nome);
+        exibir.append("\nEmail: " + email);
         return exibir.toString();
     }
 
