@@ -4,14 +4,16 @@ public class Consumidor {
 
     private String nome;
     private String email;
+    private TipoPessoa tipoPessoa;
 
 
     public Consumidor() {
     }
 
-    public Consumidor(String nome, String email) {
+    public Consumidor(String nome, String email, TipoPessoa tipoPessoa) {
         this.nome = nome;
         this.email = email;
+        this.tipoPessoa = tipoPessoa;
     }
 
 
@@ -31,6 +33,13 @@ public class Consumidor {
         this.email = email;
     }
 
+    public TipoPessoa getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(TipoPessoa tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
+    }
 
     @Override
     public String toString() {
@@ -38,6 +47,7 @@ public class Consumidor {
         exibir.append("\n======Consumidor======");
         exibir.append("\nNome: " + nome);
         exibir.append("\nEmail: " + email);
+        exibir.append("\nTipo de pessoa: " + tipoPessoa);
         return exibir.toString();
     }
 
