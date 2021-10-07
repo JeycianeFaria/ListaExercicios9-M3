@@ -18,12 +18,15 @@ public class Sistema {
     }
 
     public  static void menuTipoPessoa(){
-        List<TipoPessoa> tipoPessoas = ServicoConsumidor.exibirTiposPessoas();
-        System.out.println("======Tipos de Pessoas======");
 
+        List<TipoPessoa> tipoPessoas = ServicoConsumidor.exibirTiposPessoas();
+
+        System.out.println("======Tipos de Pessoas======");
         for (int contador = 0; contador < tipoPessoas.size();contador++){
-            System.out.println("Digite " + contador + " para: " + tipoPessoas.get(contador));
+            //System.out.println("Digite " + contador + " para: " + tipoPessoas.get(contador));
+            System.out.println(tipoPessoas.get(contador));
         }
+
     }
 
 }
