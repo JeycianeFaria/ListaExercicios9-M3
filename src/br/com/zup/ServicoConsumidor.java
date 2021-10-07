@@ -38,5 +38,15 @@ public class ServicoConsumidor {
         throw new Exception("Opção selecionada inválida");
     }*/
 
+    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws  Exception{
+
+        validarTipoPessoa(tipoSelecionado);
+        Consumidor consumidor = new Consumidor(nome,email,tipoSelecionado);
+        consumidores.add(consumidor);
+
+        return consumidor;
+
+    }
+
 
 }

@@ -29,4 +29,17 @@ public class Sistema {
 
     }
 
+
+    public static Consumidor cadastrarConsumidor() throws Exception{
+        String nome = capturaDeDados("Digite o nome do consumidor: ").nextLine();
+        String email = capturaDeDados("Digite o email do consumidor: ").nextLine();
+        menuTipoPessoa();
+        String tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
+        ServicoConsumidor.validarTipoPessoa(tipoPessoa);
+        Consumidor consumidor = ServicoConsumidor.cadastrarConsumidor(nome,email,tipoPessoa);
+
+        return consumidor;
+
+    }
+
 }
