@@ -18,17 +18,8 @@ public class ServicoConsumidor {
 
     }
 
-    public static TipoPessoa validarTipoPessoa(String tipoSelecionado) throws Exception {
-        for (TipoPessoa referencia : TipoPessoa.values()) {
-            if (tipoSelecionado.equalsIgnoreCase(String.valueOf(referencia))) {
-                return referencia;
-            }
-        }
 
-        throw new Exception("Opção digitada inválida");
-    }
-
-     /*public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
+     public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
         for (TipoPessoa referencia: exibirTiposPessoas()){
             if (referencia.equals(exibirTiposPessoas().get(tipoSelecionado))){
                 return referencia;
@@ -36,7 +27,7 @@ public class ServicoConsumidor {
         }
 
         throw new Exception("Opção selecionada inválida");
-    }*/
+    }
 
     public static void validarEmail(String email) throws Exception{
         if (!email.contains("@")) {
@@ -53,7 +44,7 @@ public class ServicoConsumidor {
     }
 
 
-    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws Exception {
+    public static Consumidor cadastrarConsumidor(String nome, String email, int tipoSelecionado) throws Exception {
 
         TipoPessoa tipoPessoa = validarTipoPessoa(tipoSelecionado);
         Consumidor consumidor = new Consumidor(nome, email, tipoPessoa);
