@@ -19,14 +19,15 @@ public class ServicoConsumidor {
     }
 
 
-     public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
+     public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws ArrayIndexOutOfBoundsException{
         for (TipoPessoa referencia: exibirTiposPessoas()){
             if (referencia.equals(exibirTiposPessoas().get(tipoSelecionado))){
                 return referencia;
             }
         }
 
-        throw new Exception("Opção selecionada inválida");
+        throw new ArrayIndexOutOfBoundsException("Opção selecionada inválida");
+
     }
 
     public static void validarEmail(String email) throws Exception{
