@@ -37,8 +37,8 @@ public class Sistema {
         ServicoConsumidor.validarEmail(email);
         ServicoConsumidor.verificarEmail(email);
         menuTipoPessoa();
-        String tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
-        ServicoConsumidor.validarTipoPessoa(tipoPessoa);
+        String tipoSelecionado = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
+        TipoPessoa tipoPessoa  = ServicoConsumidor.validarTipoPessoa(tipoSelecionado);
         Consumidor consumidor = ServicoConsumidor.cadastrarConsumidor(nome,email,tipoPessoa);
 
         return consumidor;

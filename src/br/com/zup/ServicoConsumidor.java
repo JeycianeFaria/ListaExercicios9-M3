@@ -44,9 +44,8 @@ public class ServicoConsumidor {
     }
 
 
-    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws Exception {
+    public static Consumidor cadastrarConsumidor(String nome, String email, TipoPessoa tipoPessoa) throws Exception {
 
-        TipoPessoa tipoPessoa = validarTipoPessoa(tipoSelecionado);
         Consumidor consumidor = new Consumidor(nome, email, tipoPessoa);
         consumidores.add(consumidor);
 
