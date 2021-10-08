@@ -28,15 +28,6 @@ public class ServicoConsumidor {
         throw new Exception("Opção digitada inválida");
     }
 
-     /*public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
-        for (TipoPessoa referencia: exibirTiposPessoas()){
-            if (referencia.equals(exibirTiposPessoas().get(tipoSelecionado))){
-                return referencia;
-            }
-        }
-
-        throw new Exception("Opção selecionada inválida");
-    }*/
 
     public static void validarEmail(String email) throws Exception{
         if (!email.contains("@")) {
