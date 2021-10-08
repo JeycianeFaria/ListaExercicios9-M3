@@ -53,4 +53,38 @@ public class Sistema {
         return  fatura;
     }
 
+
+    public static boolean executar() throws Exception{
+        boolean executarMenu = true;
+
+        while (executarMenu){
+
+            menu();
+            int opcaoSelecionado = capturaDeDados("Digite a opção desejada: ").nextInt();
+
+            if (opcaoSelecionado == 1){
+                //cadastrar consumidor
+                Consumidor consumidor = cadastrarConsumidor();
+                System.out.println(consumidor);
+
+            }else if(opcaoSelecionado == 2){
+                //cadastrar Fatura
+                Fatura fatura =  cadastrarFatura();
+                System.out.println(fatura);
+
+            }else if (opcaoSelecionado == 3){
+                //sair
+                executarMenu = false;
+                System.out.println("Até a Proxima");
+
+            }else{
+                System.out.println("Opção selecionada inválida!");
+            }
+
+        }
+
+       return executarMenu;
+
+    }
+
 }

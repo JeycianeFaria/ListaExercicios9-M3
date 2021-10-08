@@ -44,11 +44,12 @@ public class Fatura {
     @Override
     public String toString() {
         StringBuilder exibir = new StringBuilder();
-        exibir.append("\n======Fatura======");
-        exibir.append("\nConsumidor: " + consumidor);
+        exibir.append("\n=========Fatura=========");
+        exibir.append("\n" + consumidor);
+        exibir.append("\n======Dados Fatura======");
         exibir.append("\nValor da Fatura: R$" + valorASerPago);
         exibir.append("\nData de Vencimento: " + dataVencimento);
-        exibir.append("\n==================");
+        exibir.append("\n========================");
         return exibir.toString();
     }
 
