@@ -20,14 +20,10 @@ public class Sistema {
     }
 
     public  static void menuTipoPessoa(){
-
-        List<TipoPessoa> tipoPessoas = ServicoConsumidor.exibirTiposPessoas();
-
         System.out.println("======Tipos de Pessoas======");
-        for (int contador = 0; contador < tipoPessoas.size();contador++){
-            System.out.println(tipoPessoas.get(contador));
+        for(TipoPessoa referencia: TipoPessoa.values()){
+            System.out.println("Digite " + referencia.ordinal() +  " para: " + referencia);
         }
-
     }
 
 
@@ -37,7 +33,7 @@ public class Sistema {
         ServicoConsumidor.validarEmail(email);
         ServicoConsumidor.verificarEmail(email);
         menuTipoPessoa();
-        String tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
+        int tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextInt();
         ServicoConsumidor.validarTipoPessoa(tipoPessoa);
         Consumidor consumidor = ServicoConsumidor.cadastrarConsumidor(nome,email,tipoPessoa);
 

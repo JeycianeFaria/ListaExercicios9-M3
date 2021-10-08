@@ -1,5 +1,6 @@
 package br.com.zup;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,27 +8,18 @@ public class ServicoConsumidor {
 
     private static List<Consumidor> consumidores = new ArrayList<>();
 
-    public static List<TipoPessoa> exibirTiposPessoas() {
-        List<TipoPessoa> tiposPessoas = new ArrayList<>();
 
-        for (TipoPessoa referencia : TipoPessoa.values()) {
-            tiposPessoas.add(referencia);
-        }
+    public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
 
-        return tiposPessoas;
-
-    }
-
-    public static TipoPessoa validarTipoPessoa(String tipoSelecionado) throws Exception {
-        for (TipoPessoa referencia : TipoPessoa.values()) {
-            if (tipoSelecionado.equalsIgnoreCase(String.valueOf(referencia))) {
+        for (TipoPessoa referencia: TipoPessoa.values()) {
+            if (referencia.ordinal() == tipoSelecionado) {
                 return referencia;
             }
         }
 
-        throw new Exception("Opção digitada inválida");
-    }
+         throw new Exception("Opção selecionada inválida");
 
+    }
 
     public static void validarEmail(String email) throws Exception{
         if (!email.contains("@")) {
@@ -44,7 +36,7 @@ public class ServicoConsumidor {
     }
 
 
-    public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws Exception {
+    public static Consumidor cadastrarConsumidor(String nome, String email, int tipoSelecionado) throws Exception {
 
         TipoPessoa tipoPessoa = validarTipoPessoa(tipoSelecionado);
         Consumidor consumidor = new Consumidor(nome, email, tipoPessoa);
