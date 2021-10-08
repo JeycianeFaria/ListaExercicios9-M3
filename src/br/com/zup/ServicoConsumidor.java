@@ -1,5 +1,6 @@
 package br.com.zup;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,26 +8,16 @@ public class ServicoConsumidor {
 
     private static List<Consumidor> consumidores = new ArrayList<>();
 
-    public static List<TipoPessoa> exibirTiposPessoas() {
-        List<TipoPessoa> tiposPessoas = new ArrayList<>();
 
-        for (TipoPessoa referencia : TipoPessoa.values()) {
-            tiposPessoas.add(referencia);
-        }
+    public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
 
-        return tiposPessoas;
-
-    }
-
-
-     public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws ArrayIndexOutOfBoundsException{
-        for (TipoPessoa referencia: exibirTiposPessoas()){
-            if (referencia.equals(exibirTiposPessoas().get(tipoSelecionado))){
+        for (TipoPessoa referencia: TipoPessoa.values()) {
+            if (referencia.ordinal() == tipoSelecionado) {
                 return referencia;
             }
         }
 
-        throw new ArrayIndexOutOfBoundsException("Opção selecionada inválida");
+         throw new Exception("Opção selecionada inválida");
 
     }
 
