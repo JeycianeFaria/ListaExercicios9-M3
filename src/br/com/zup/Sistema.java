@@ -34,6 +34,7 @@ public class Sistema {
     public static Consumidor cadastrarConsumidor() throws Exception{
         String nome = capturaDeDados("Digite o nome do consumidor: ").nextLine();
         String email = capturaDeDados("Digite o email do consumidor: ").nextLine();
+        ServicoConsumidor.validarEmail(email);
         menuTipoPessoa();
         String tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
         ServicoConsumidor.validarTipoPessoa(tipoPessoa);
@@ -45,6 +46,7 @@ public class Sistema {
 
     public static Fatura cadastrarFatura() throws Exception{
         String email = capturaDeDados("Digite o email do consumidor ao qual  deseja cadastrar a fatura: ").nextLine();
+        ServicoConsumidor.validarEmail(email);
         Consumidor consumidor = ServicoConsumidor.buscarConsumidor(email);
         double valorFatura = capturaDeDados("Digite o valor da fatura: ").nextDouble();
         String dataVencimento = capturaDeDados("Digite a data de vencimento da fatura: ").nextLine();
