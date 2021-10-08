@@ -14,4 +14,15 @@ public class ServicoFatura {
         return fatura;
     }
 
+    public static List<Fatura> pesquisarFaturaConsumidor(Consumidor consumidor){
+        List<Fatura> faturasConsumidor = new ArrayList<>();
+        for (Fatura referencia:faturas){
+            if (referencia.getConsumidor().equals(consumidor)){
+                faturasConsumidor.add(referencia);
+            }
+        }
+
+        return faturasConsumidor;
+    }
+
 }

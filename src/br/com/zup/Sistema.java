@@ -15,7 +15,8 @@ public class Sistema {
         System.out.println("\n======Bem Vindo=======");
         System.out.println("Digite 1 - para cadastrar um consumidor.");
         System.out.println("Digite 2 - para cadastrar uma fatura.");
-        System.out.println("Digite 3 - para sair.");
+        System.out.println("Digite 3 - para pesquisar as faturas do consumidor.");
+        System.out.println("Digite 4 - para sair.");
     }
 
     public  static void menuTipoPessoa(){
@@ -35,6 +36,7 @@ public class Sistema {
         String nome = capturaDeDados("Digite o nome do consumidor: ").nextLine();
         String email = capturaDeDados("Digite o email do consumidor: ").nextLine();
         ServicoConsumidor.validarEmail(email);
+        ServicoConsumidor.verificarEmail(email);
         menuTipoPessoa();
         String tipoPessoa = capturaDeDados("Digite o tipo de pessoa: ").nextLine();
         ServicoConsumidor.validarTipoPessoa(tipoPessoa);
@@ -53,6 +55,15 @@ public class Sistema {
         Fatura fatura = ServicoFatura.cadastrarFatura(consumidor,valorFatura,dataVencimento);
 
         return  fatura;
+    }
+
+    public static List<Fatura> pesquisarFaturaConsumidor() throws Exception{
+        String email = capturaDeDados("Digite o email do consumidor ao qual  deseja pesquisar as faturas: ").nextLine();
+        ServicoConsumidor.validarEmail(email);
+        Consumidor consumidor = ServicoConsumidor.buscarConsumidor(email);
+        List<Fatura> faturasConsumidor = ServicoFatura.pesquisarFaturaConsumidor(consumidor);
+
+        return faturasConsumidor;
     }
 
 
@@ -75,11 +86,16 @@ public class Sistema {
                 System.out.println(fatura);
 
             }else if (opcaoSelecionado == 3){
+               //pesquisar faturas
+                List<Fatura> faturas = pesquisarFaturaConsumidor();
+                System.out.println(faturas);
+
+            }else if (opcaoSelecionado == 4){
                 //sair
                 executarMenu = false;
                 System.out.println("Até a Proxima");
-
-            }else{
+            }
+            else{
                 System.out.println("Opção selecionada inválida!");
             }
 

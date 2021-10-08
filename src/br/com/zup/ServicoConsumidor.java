@@ -29,7 +29,7 @@ public class ServicoConsumidor {
     }
 
      /*public static TipoPessoa validarTipoPessoa(int tipoSelecionado) throws Exception{
-        for (TipoPessoa referencia: TipoPessoa.values()){
+        for (TipoPessoa referencia: exibirTiposPessoas()){
             if (referencia.equals(exibirTiposPessoas().get(tipoSelecionado))){
                 return referencia;
             }
@@ -56,7 +56,6 @@ public class ServicoConsumidor {
     public static Consumidor cadastrarConsumidor(String nome, String email, String tipoSelecionado) throws Exception {
 
         TipoPessoa tipoPessoa = validarTipoPessoa(tipoSelecionado);
-        verificarEmail(email);
         Consumidor consumidor = new Consumidor(nome, email, tipoPessoa);
         consumidores.add(consumidor);
 
